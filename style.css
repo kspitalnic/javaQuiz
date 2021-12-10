@@ -1,0 +1,158 @@
+body{
+    background-color: rgb(155, 192, 170);
+    margin:10px;
+}
+
+header {
+    display:flex;
+    justify-content: space-between;
+}
+
+header .timer {
+    float:right;
+}
+
+header a{
+    text-decoration:none;
+    color: black;
+}
+
+header a:hover {
+    font-weight:bold;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.intro {
+    display:flex;
+    padding:10px;
+}
+
+.intro button{
+    position:absolute;
+    top: 75%;
+    left: 50%;
+    transform:translate(-50%);
+    font-size: 20px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+
+.intro button:hover{
+    background-color:lightgray;
+    font-weight: bold;
+    cursor:pointer;  
+}
+
+.instructions {
+    position:absolute; 
+    width: 400px;
+    top:40%;
+    left:50%;
+    transform:translate(-50%);
+    background: #fff;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+
+.questions{
+    display: none;
+    position:absolute;
+    top: 25%;
+    left: 50%;
+    transform:translate(-50%);
+    background: #fff;
+    border-radius: 10px;
+    height: 300px;
+    width: 400px;
+}
+
+
+.choices {
+    margin: 10px;
+    padding:5px;
+}
+
+ul li{
+    list-style: lower-alpha;
+    padding:5px;
+} 
+
+.next button, .exit button{
+    position:absolute;
+    top: 75%;
+    left: 50%;
+    transform:translate(-50%);
+    font-size: 20px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+}
+
+.btns {
+    padding:5px;
+    margin:0 15px;
+}
+
+.button:hover{
+    background-color:lightgray;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.next {
+    float:right;
+}
+
+.questions h3 {
+    text-align: center;
+}
+
+
+.btns button {
+    font-size: 18px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+ }
+
+ .btns button:hover{
+    background-color: lightgray;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+
+.choices li {
+    background:rgb(239, 239, 239);
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 5px; 
+    display: flex;
+    margin: 5px;
+    font-size:18px;
+}
+
+.choices li:hover{
+    background:lightgray;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 5px; 
+    display: flex;
+    align-items:center;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+
+
+
+
+.scores li{
+    list-style:decimal;
+}

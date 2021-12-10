@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Quiz Challenge</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div class="scores"> <a href="./highscores.html">View High Scores</a> </div>
+        <div class="timer">Time Remaining:</div>
+        <div class="restart"><a href="./index.html">Restart Quiz</a></div>
+    </header>
+
+    <!--Section 1 - Introduction -->
+    <section class="intro">
+        <button id="start">Start Quiz</button>
+        <div class="instructions">
+            <h4>Coding Quiz Challenge </h4>
+            <p>Try and answer the following code related questions within 
+                the time limit. Keep in mind that incorrect answers will 
+                penalize your score/time by 10 seconds!
+            </p>
+        </div>
+    </section>
+
+    <!--Section 2 - Quiz -->
+    <section class="questions">
+        <h3>Question #</h3>
+        <ul class="choices">
+            <li>Option 1</li>
+            <li>Option 2</li>
+            <li>Option 3</li>
+            <li>Option 4</li>
+        </ul>
+        <div class="btns">
+            <button class="exit">Exit</button>
+            <button class="next">Next Question</button>
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
