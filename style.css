@@ -153,6 +153,33 @@ ul li{
 
 
 
+.scores {
+    position:absolute; 
+    width: 400px;
+    top:40%;
+    left:50%;
+    transform:translate(-50%);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.363);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.submitBtn, input{
+    font-size: 16px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    display:inline-flex;
+}
+
+.submitBtn:hover{
+    background-color:lightgray;
+    font-weight: bold;
+    cursor:pointer;  
+}
+
 .scores li{
     list-style:decimal;
 }

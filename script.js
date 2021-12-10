@@ -2,11 +2,9 @@
 
 var startBtn = document.querySelector(".intro button");
 
-startBtn.addEventListener("click", function(){
-    alert("button clicked");
-})
-
-
+// startBtn.addEventListener("click", function())
+//     alert("button clicked");
+// })
 
 
 
@@ -18,20 +16,15 @@ startBtn.addEventListener("click", function(){
 
 
 //High Score
+var formEl = document.querySelector("#enterName");
+var addScore=document.querySelector(".scores ul");
 
-//var EL = document.createElement("li");
-//taskItemEl=textContent=user input;
-//taskitemEl
-//highscores.appendChild(taskitemEl);
-//taskItemEl.classname="task-item"
-//AKA e.g.,
-// var buttonEl = document.querySelector("#save-task");
-// var tasksToDoEl = document.querySelector("#tasks-to-do");
+var createNewScore=function(event){
+    event.preventDefault();
 
-// var createTaskHandler = function() {
-//     var listItemEl = document.createElement("li");
-//     listItemEl.className = "task-item";
-//     listItemEl.textContent = "This is a new task.";
-//     tasksToDoEl.appendChild(listItemEl);
-// //   }
-// buttonEl.addEventListener("click", createtaskHandler);
+    var newScore=document.createElement("li");
+    newScore.textContent=document.querySelector("input[name='player']").value;
+    addScore.appendChild(newScore);
+}
+formEl.addEventListener("submit", createNewScore);
+
