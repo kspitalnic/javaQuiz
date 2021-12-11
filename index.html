@@ -16,7 +16,7 @@
     </header>
 
     <!--Section 1 - Introduction -->
-    <section class="intro">
+    <section id="intro">
         <button id="start">Start Quiz</button>
         <div class="instructions">
             <h4>Coding Quiz Challenge </h4>
@@ -28,17 +28,18 @@
     </section>
 
     <!--Section 2 - Quiz -->
-    <section class="questions">
-        <h3>Question #</h3>
-        <ul class="choices">
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
-            <li>Option 4</li>
-        </ul>
+    <section id="question">
+        <div id="prompt"></div>
+        <div id="options"></div>
+        <!-- <ul class="choices">
+            <label><li><input type="radio" name="select" id="a">lsd</li></label>
+            <label><li><input type="radio" name="select" id="b">lsdfd</li></label>
+            <label><li><input type="radio" name="select" id="c">sd</li></label>
+            <label><li><input type="radio" name="select" id="d">sdf</li></label>
+        </ul> -->
         <div class="btns">
-            <button class="exit">Exit</button>
-            <button class="next">Next Question</button>
+            <button id="exit"><a href= index.html>Exit </a></button>
+            <button id="next">Next Question</button>
         </div>
     </section>
 

@@ -23,12 +23,12 @@ header a:hover {
     cursor:pointer;
 }
 
-.intro {
+#intro {
     display:flex;
     padding:10px;
 }
 
-.intro button{
+#intro button{
     position:absolute;
     top: 75%;
     left: 50%;
@@ -40,7 +40,7 @@ header a:hover {
     border-radius: 10px;
 }
 
-.intro button:hover{
+#intro button:hover{
     background-color:lightgray;
     font-weight: bold;
     cursor:pointer;  
@@ -58,8 +58,7 @@ header a:hover {
 }
 
 
-.questions{
-    display: none;
+#question {
     position:absolute;
     top: 25%;
     left: 50%;
@@ -70,10 +69,8 @@ header a:hover {
     width: 400px;
 }
 
-
-.choices {
-    margin: 10px;
-    padding:5px;
+#question ul{
+    padding:0;
 }
 
 ul li{
@@ -81,7 +78,7 @@ ul li{
     padding:5px;
 } 
 
-.next button, .exit button{
+#next button, #exit button{
     position:absolute;
     top: 75%;
     left: 50%;
@@ -91,6 +88,11 @@ ul li{
     outline: none;
     border: none;
     border-radius: 20px;
+}
+
+a {
+    text-decoration: none;
+    color:black;
 }
 
 .btns {
@@ -104,14 +106,9 @@ ul li{
     cursor:pointer;
 }
 
-.next {
+#next {
     float:right;
 }
-
-.questions h3 {
-    text-align: center;
-}
-
 
 .btns button {
     font-size: 18px;
@@ -136,7 +133,7 @@ ul li{
     display: flex;
     margin: 5px;
     font-size:18px;
-}
+    }
 
 .choices li:hover{
     background:lightgray;
@@ -148,9 +145,6 @@ ul li{
     font-weight: bold;
     cursor:pointer;
 }
-
-
-
 
 
 .scores {
