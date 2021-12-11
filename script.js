@@ -1,112 +1,128 @@
 //Intro
 
 var startBtn = document.querySelector("#start");
-var questionEl = document.querySelector("#question");
-
-var questions =[
-
-    {q: "x", 
-    options: [
-        {a:"y", answer: false},
-        {b:"y", answer: false},
-        {c:"y", answer: true},
-        {d:"y", nswer: false},
-            ]
-            },
-
-    {q: "x2", 
-    options: [
-        {a:"y", answer: true},
-        {b:"y", answer: false},
-        {c:"y", answer: false},
-        {d:"y", answer: false},
-         ]
-         },
-
-     {q: "x3", 
-     options: [
-        {a:"y", aAnswer: false},
-        {b:"y", aAnswer: false},
-        {c:"y", answer: true},
-        {d:"y", answer: false},
-         ]
-         },
-
-    {q: "x4", 
-    options: [
-        {a:"y", answer: false},
-        {b:"y", answer: false},
-        {c:"y", answer: false},
-        {d:"y", answer: true},
-         ]
-         },
-
-    {q: "x5", 
-    options: [
-        {a:"y", answer: false},
-        {b:"y", answer: true},
-        {c:"y", answer: false},
-        {d:"y", answer: false},
-         ]
-         }
-    ]
+var questionEl = document.querySelector("#prompt");
+var currentQ = 0;
+var nextBtn = document.querySelector("#next");
+var currentOp = 0;
+var opa = document.querySelector("#a");
+var opb = document.querySelector("#b");
+var opc = document.querySelector("#c");
+var opd = document.querySelector("#d");
 
 
+var questions = [
 
-function start(){
-    document.getElementById("question").style.display="none";
-startBtn.addEventListener("click", function(event){
-    event.preventDefault();
-    console.log("Start");
-    document.getElementById("intro").style.display="none";
-    document.getElementById("question").style.display="block";
-    askQ();
-})
+    {
+        que: "This is the first question that I am asking",
+        options: [
+            { a: "this is an answer choice", answer: false },
+            { b: "y", answer: false },
+            { c: "y", answer: true },
+            { d: "y", nswer: false },
+        ]
+    },
+
+    {
+        que: "This is the second question I am asking",
+        options: [
+            { a: "y", answer: true },
+            { b: "y", answer: false },
+            { c: "y", answer: false },
+            { d: "y", answer: false },
+        ]
+    },
+
+    {
+        que: "This is the third question that I am asking",
+        options: [
+            { a: "y", answer: false },
+            { b: "y", answer: false },
+            { c: "y", answer: true },
+            { d: "y", nswer: false },
+        ]
+    },
+
+    {
+        que: "This is the fourth question I am asking",
+        options: [
+            { a: "y", answer: true },
+            { b: "y", answer: false },
+            { c: "y", answer: false },
+            { d: "y", answer: false },
+        ]
+    },
+
+    {
+        que: "fifth question",
+        options: [
+            { a: "y", answer: false },
+            { b: "y", answer: true },
+            { c: "y", answer: false },
+            { d: "y", answer: false },
+        ]
+    },
+
+]
+
+
+//Start Button
+function start() {
+    document.getElementById("question").style.display = "none";
+    startBtn.addEventListener("click", function () {
+        console.log("Start");
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("question").style.display = "block";
+        askFirstQ();
+    })
 }
 
 start();
 
-function askQ(){
+// function for question 
+
+function askFirstQ (){
+        console.log(questionEl.textContent = questions[currentQ].que);
+        currentQ++;
+
+        console.log(opa.textContent = questions[currentQ].options[currentOp].a);
+        currentOp++;
+        console.log(opb.textContent = questions[currentQ].options[currentOp].b);
+        currentOp++;
+        console.log(opc.textContent = questions[currentQ].options[currentOp].c);
+        currentOp++;
+        console.log(opd.textContent = questions[currentQ].options[currentOp].d);
+        currentOp++;
+
+        askQuestion();
 
 }
 
+function askQuestion() {
+        nextBtn.addEventListener("click", function(){
+            if (currentQ < 5) {
+        console.log(questionEl.textContent = questions[currentQ].que);
+        currentOp=0;
+        console.log(opa.textContent = questions[currentQ].options[currentOp].a);
+        currentOp++;
+        console.log(opb.textContent = questions[currentQ].options[currentOp].b);
+        currentOp++;
+        console.log(opc.textContent = questions[currentQ].options[currentOp].c);
+        currentOp++;
+        console.log(opd.textContent = questions[currentQ].options[currentOp].d);
+        currentOp++;
+        currentQ++;
+        }
+        else { 
+        //next function
+    };
+})}
 
 
-
-
-// function createQuiz(){
-//     var questionPrompt = document.querySelector("prompt");
-//     var questionOptions = document.querySelector("options");
-//     console.log(questionPrompt);
-
-//     for (var i=0; i<questions.length; i++) {
-//         var question = document.createElement("prompt");
-//         question.textContent=document.querySelector("prompt");
-//         questionPrompt.appendChild(question);
-//     }
-// }
-// console.log(createQuiz());
-//     createQuiz(); 
-
-
-
-
-
-//High Score...resolve issues - also, error on start page  so need to have it 
-//only read it if on high score page and inability to submit alert when not played 
-
-
-// var formEl = document.querySelector("#enterName");
-// var addScore=document.querySelector(".scores ul");
-
-
-// var createNewScore=function(event){
-//     event.preventDefault();
-
-//     var newScore=document.createElement("li");
-//     newScore.textContent=document.querySelector("input[name='player']").value;
-//     addScore.appendChild(newScore);
-    
-//     console.log(newScore);
-// }
-// formEl.addEventListener("submit", createNewScore);
+    // console.log(questions[i]);
+    // console.log(questions[i].q);
+    // console.log(questions[i].options[0].a);
+    // console.log(questions[i].options[1].b);
+    // console.log(questions[i].options[2].c);
+    // console.log(questions[i].options[3].d);
+//issue anticipated - one question at a time . will neee separate logic in for loop 

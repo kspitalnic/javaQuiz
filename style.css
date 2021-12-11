@@ -60,13 +60,13 @@ header a:hover {
 
 #question {
     position:absolute;
-    top: 25%;
+    top: 15%;
     left: 50%;
     transform:translate(-50%);
     background: #fff;
     border-radius: 10px;
-    height: 300px;
-    width: 400px;
+    height: 400px;
+    width: 650px;
 }
 
 #question ul{
@@ -129,22 +129,21 @@ a {
     background:rgb(239, 239, 239);
     border: 1px solid gray;
     border-radius: 10px;
-    padding: 5px; 
     display: flex;
     margin: 5px;
-    font-size:18px;
-    }
+    align-items: center;    
+}
 
 .choices li:hover{
     background:lightgray;
     border: 1px solid gray;
     border-radius: 10px;
-    padding: 5px; 
     display: flex;
     align-items:center;
     font-weight: bold;
     cursor:pointer;
 }
+
 
 
 .scores {
@@ -176,4 +175,8 @@ a {
 
 .scores li{
     list-style:decimal;
+}
+
+#prompt {
+    text-align: center;
 }
