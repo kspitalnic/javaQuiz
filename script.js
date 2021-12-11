@@ -16,51 +16,56 @@ var questions = [
     {
         que: "This is the first question that I am asking",
         options: [
-            { a: "this is an answer choice", answer: false },
-            { b: "y", answer: false },
-            { c: "y", answer: true },
-            { d: "y", nswer: false },
-        ]
+            { a: "this is an answer choice"},
+            { b: "y"},
+            { c: "y" },
+            { d: "y"}
+        ],
+        correctA: "a"
     },
 
     {
         que: "This is the second question I am asking",
         options: [
-            { a: "y", answer: true },
-            { b: "y", answer: false },
-            { c: "y", answer: false },
-            { d: "y", answer: false },
-        ]
+            { a: "y"},
+            { b: "y"},
+            { c: "y"},
+            { d: "y"}
+        ],
+        correctA: "a"
     },
 
     {
         que: "This is the third question that I am asking",
         options: [
-            { a: "y", answer: false },
-            { b: "y", answer: false },
-            { c: "y", answer: true },
-            { d: "y", nswer: false },
-        ]
+            { a: "y"},
+            { b: "y"},
+            { c: "y"},
+            { d: "y"},
+        ],
+        correctA: "a"
     },
 
     {
         que: "This is the fourth question I am asking",
         options: [
-            { a: "y", answer: true },
-            { b: "y", answer: false },
-            { c: "y", answer: false },
-            { d: "y", answer: false },
-        ]
+            { a: "y"},
+            { b: "y"},
+            { c: "y"},
+            { d: "y"},
+        ],
+        correctA: "a"
     },
 
     {
         que: "fifth question",
         options: [
-            { a: "y", answer: false },
-            { b: "y", answer: true },
-            { c: "y", answer: false },
-            { d: "y", answer: false },
-        ]
+            { a: "y"},
+            { b: "y"},
+            { c: "y"},
+            { d: "y"}
+        ],
+        correctA: "a"
     },
 
 ]
@@ -94,12 +99,14 @@ function askFirstQ (){
         console.log(opd.textContent = questions[currentQ].options[currentOp].d);
         currentOp++;
 
+
         askQuestion();
 
 }
 
 function askQuestion() {
         nextBtn.addEventListener("click", function(){
+            document.querySelector('input[name="select"]:checked').checked = false;
             if (currentQ < 5) {
         console.log(questionEl.textContent = questions[currentQ].que);
         currentOp=0;
@@ -126,3 +133,22 @@ function askQuestion() {
     // console.log(questions[i].options[2].c);
     // console.log(questions[i].options[3].d);
 //issue anticipated - one question at a time . will neee separate logic in for loop 
+
+
+
+//before move to next question
+// if variable selected == variable of the correct answer, then they got it right
+//else remove time 
+
+var aswa = document.getElementsByName("a")
+var aswb = document.getElementsByName("b")
+var aswc = document.getElementsByName("c")
+var aswd = document.getElementsByName("d")
+
+// if(document.getElementById('gender_Male').checked) {
+//     //Male radio button is checked
+//   }else if(document.getElementById('gender_Female').checked) {
+//     //Female radio button is checked
+//   }
+
+//if (document.getElementById(a))
