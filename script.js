@@ -26,54 +26,75 @@ var questions = [
             { d: "y" }
         ],
         answers: [
-            {cor:false},
-            {cor:true},
-            {cor:true},
-            {cor:true},
+            true,
+            false,
+            false,
+            false,
         ]
     },
 
     {
         que: "This is the second question I am asking",
         options: [
-            { a: "ydfd", cora: false },
-            { b: "ysdfsdf", corb: true },
-            { c: "sdfsdfy", corc: false },
-            { d: "ysdfsfd", cord: false }
+            { a:"this is an answer choice"},
+            { b: "this is an answer choice too" },
+            { c: "y" },
+            { d: "y" }
         ],
         answers: [
-            {cora:false}
+            true,
+            false,
+            false,
+            false,
         ]
     },
 
     {
         que: "This is the third question that I am asking",
         options: [
-            { a: "y", cora: false },
-            { b: "y", corb: false },
-            { c: "y", cor: true },
-            { d: "y", cord: false },
+            { a:"this is an answer choice"},
+            { b: "this is an answer choice too" },
+            { c: "y" },
+            { d: "y" }
         ],
+        answers: [
+            true,
+            false,
+            false,
+            false,
+        ]
     },
 
     {
         que: "This is the fourth question I am asking",
         options: [
-            { a: "y", cora: false },
-            { b: "y", corb: false },
-            { c: "y", corc: false },
-            { d: "y", cord: true },
+            { a:"this is an answer choice"},
+            { b: "this is an answer choice too" },
+            { c: "y" },
+            { d: "y" }
         ],
+        answers: [
+            true,
+            false,
+            false,
+            false,
+        ]
     },
 
     {
         que: "fifth question",
         options: [
-            { a: "y", cora: true },
-            { b: "y", corb: false },
-            { c: "y", corc: false },
-            { d: "y", cord: false }
+            { a:"this is an answer choice"},
+            { b: "this is an answer choice too" },
+            { c: "y" },
+            { d: "y" }
         ],
+        answers: [
+            true,
+            false,
+            false,
+            false,
+        ]
     },
 
 ]
@@ -104,7 +125,6 @@ function askFirstQ() {
     console.log(opc.textContent = questions[currentQ].options[currentOp].c);
     currentOp++;
     console.log(opd.textContent = questions[currentQ].options[currentOp].d);
-    currentQ++;
 
     nextBtn.addEventListener("click", function () {
         nextBtn.textContent="Next";
@@ -114,7 +134,7 @@ function askFirstQ() {
             var respd = document.getElementById("dd").checked;
             console.log(respa);
             console.log(respb);
-
+            console.log(questions[currentQ].answers[0]);
             if ((respa) && (questions[currentQ].answers[0])) {
             console.log(questionEl.textContent = "Correct!");
             }
@@ -132,6 +152,7 @@ function askFirstQ() {
                 console.log(questionEl.textContent = "Incorrect");
             }
         
+            currentQ++;
 
         askQuestion();
     })
