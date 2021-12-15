@@ -14,8 +14,10 @@ var currentQ = -1;
 var currentOp = 0;
 var answerLetter = 0;
 
+var time=20;
+
+
 document.getElementById("start").addEventListener("click", function(){
-var time=5;
 
 var interval=setInterval(function timer(){
     document.getElementById("clock").innerHTML=time;
@@ -25,6 +27,7 @@ if (time<=-1){
     window.alert("You ran out of time, Try again!");       
     window.location.href = "#"}}, 1000);
     console.log(time);
+    return time;
 })
 
 
@@ -157,13 +160,16 @@ function askFirstQ() {
                 nextBtn.addEventListener("click",function(){
                     askFirstQ();
             })}
-                       else if((!respa)&&(!respb)&&(!respc)&&(!respd)){
+            else if((!respa)&&(!respb)&&(!respc)&&(!respd)){
                 window.alert("Please select an option");
                 nextBtn.textContent="Review";
                 askFirstQ();
             }
             else {
                 console.log(questionEl.textContent = "Incorrect");
+                if (time>-1)
+                    {time=time-10}
+                else{time=0};
                 nextBtn.addEventListener("click",function(){
                     askFirstQ();
             })
