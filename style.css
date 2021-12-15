@@ -46,6 +46,10 @@ header a:hover {
     cursor:pointer;  
 }
 
+#clock{
+    display: inline-flex;
+}
+
 .instructions {
     position:absolute; 
     width: 400px;

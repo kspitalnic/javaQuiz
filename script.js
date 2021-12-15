@@ -14,6 +14,20 @@ var currentQ = -1;
 var currentOp = 0;
 var answerLetter = 0;
 
+document.getElementById("start").addEventListener("click", function(){
+var time=5;
+
+var interval=setInterval(function timer(){
+    document.getElementById("clock").innerHTML=time;
+    time--;
+if (time<=-1){
+    clearInterval(interval);
+    window.alert("You ran out of time, Try again!");       
+    window.location.href = "#"}}, 1000);
+    console.log(time);
+})
+
+
 var questions = [
     {
         que: "This is the first question that I am asking",
@@ -107,7 +121,7 @@ function start() {
 start();
 
 // function for question 
-//ONLY ITERATES THROUGH IT CORRECTLY FOR THE FIRST TIME (  which is why originally had the two separete functions - the second for future questions... find out why and debug. then just need timer and to add to timer if wrong).
+//iterates through all of them but only shows some to user. error at end. 
 
 function askFirstQ() {
     currentQ++;
