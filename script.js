@@ -2,9 +2,9 @@
 //Issues: 
     // Iteration through questions visible to user. 
     // pop up comes three times when finished complete. 
-    // add reset radio button 
-    // high score comes with name and time. only add once. 
+    // time goes down extra when don't put an answer (seems to add up the non-answers as incorrect?)
 
+    //extra - pause time when reviewing answer?
 
 var startBtn = document.querySelector("#start");
 var questionEl = document.querySelector("#prompt");
@@ -133,6 +133,11 @@ function askFirstQ() {
     currentQ++;
     currentOp=0;
 
+    document.getElementById("aa").disabled = false;
+    document.getElementById("bb").disabled = false;
+    document.getElementById("cc").disabled = false;
+    document.getElementById("dd").disabled = false; 
+
     if (currentQ < 5) {
     console.log(questionEl.textContent = questions[currentQ].que);
 
@@ -158,19 +163,26 @@ function askFirstQ() {
         else{
         console.log("done" + time);
         time=time;
+        console.log(time);
+        score=JSON.stringify(time);
+        console.log(score);
+        localStorage.setItem("score", score);
         clearInterval();
-        window.location.href = "./highscores.html"
-        window.alert("Congragulations! You scored " + time +  " points on the quiz! Add your initials to the high score board!" );       
-            console.log(time);
+        window.alert("Congragulations! You scored " + time +  " points on the quiz! Add your initials to the high score board!" );    
+        window.location.href = "./highscores.html"   
         }
     }
 }
-
 
     function reviewQ () {
 
     nextBtn.addEventListener("click", function () {
         nextBtn.textContent="Next";
+
+        document.getElementById("aa").disabled = true;
+        document.getElementById("bb").disabled = true;
+        document.getElementById("cc").disabled = true;
+        document.getElementById("dd").disabled = true;
 
             var respa = document.getElementById("aa").checked;
             var respb = document.getElementById("bb").checked;
@@ -186,11 +198,13 @@ function askFirstQ() {
                     if (document.querySelector('input[name="select"]:checked').checked = true){
                         document.querySelector('input[name="select"]:checked').checked = false
                     };
-                    askFirstQ();
+                askFirstQ();
+
             })}
             else if((!respa)&&(!respb)&&(!respc)&&(!respd)){
                 window.alert("Please select an option");
                 nextBtn.textContent="Review";
+                currentQ--;
                 askFirstQ();
             }
             else {
@@ -199,9 +213,14 @@ function askFirstQ() {
                     {time=time-10}
                 else{time=0};
                 nextBtn.addEventListener("click",function(){
-                    document.querySelector('input[name="select"]:checked').checked = false;
+                    if (document.querySelector('input[name="select"]:checked').checked = true){
+                    document.querySelector('input[name="select"]:checked').checked = false};
                     askFirstQ();
             })
             }
+
         })
     }
+
+
+
