@@ -1,6 +1,9 @@
-//code before attempt to add correct answer changes 
+//code before attempt to add correct answer changes
+//Issues: Iteration through questions visible to user. 
+    // pop up comes three times when finished complete. 
+    // add reset radio button 
+    // high score comes with name and time. only add once. 
 
-//questions - page does not go on if user does not select an answer. how to put in pop up when no radio button is checked
 //Intro
 
 var startBtn = document.querySelector("#start");
@@ -14,7 +17,7 @@ var currentQ = -1;
 var currentOp = 0;
 var answerLetter = 0;
 
-var time=20;
+var time=100;
 
 
 document.getElementById("start").addEventListener("click", function(){
@@ -24,12 +27,12 @@ var interval=setInterval(function timer(){
     time--;
 if (time<=-1){
     clearInterval(interval);
+    nextBtn.disabled=true;
+    document.getElementById("clock").innerHTML="0";
     window.alert("You ran out of time, Try again!");       
     window.location.href = "#"}}, 1000);
     console.log(time);
-    return time;
 })
-
 
 var questions = [
     {
@@ -142,7 +145,29 @@ function askFirstQ() {
     console.log(opd.textContent = questions[currentQ].options[currentOp].d);
     currentOp=0;
 
-    nextBtn.textContent="Review";
+    nextBtn.textContent="Review"; 
+
+    reviewQ();
+
+    }
+    else{
+
+        if (time<=0){
+            window.alert("Please try again!");
+        }
+        else{
+        console.log("done" + time);
+        time=time;
+        clearInterval();
+        window.location.href = "./highscores.html"
+        window.alert("Congragulations! You scored " + time +  " points on the quiz! Add your initials to the high score board!" );       
+            console.log(time);
+        }
+    }
+}
+
+
+    function reviewQ () {
 
     nextBtn.addEventListener("click", function () {
         nextBtn.textContent="Next";
@@ -176,100 +201,3 @@ function askFirstQ() {
             }
         })
     }
-    else {
-        console.log("done");
-        // window.location.href = "./highscores.html"
-    }
-}
- 
-// function nextQ(){
-// nextBtn.addEventListener("click",function(){
-//     currentQ++;
-//     // document.querySelector('input[name="select"]:checked').checked = false;
-//     askFirstQ();
-// })}
-
-// function askQuestion() {
-//     nextBtn.addEventListener("click", function () {
-//         nextBtn.textContent="Review"
-//         document.querySelector('input[name="select"]:checked').checked = false;
-//         if (currentQ < 5) {
-//             console.log(questionEl.textContent = questions[currentQ].que);
-//             currentOp = 0;
-//             console.log(opa.textContent = questions[currentQ].options[currentOp].a);
-//             currentOp++;
-//             console.log(opb.textContent = questions[currentQ].options[currentOp].b);
-//             currentOp++;
-//             console.log(opc.textContent = questions[currentQ].options[currentOp].c);
-//             currentOp++;
-//             console.log(opd.textContent = questions[currentQ].options[currentOp].d);
-//             currentOp++;
-//             currentQ++;
-//         }
-//         // else { 
-//         // document.getElementsByName("next").onclick = function(){
-//         //     location.href = ""
-//         // }
-//         //next function
-//     }
-//     )
-// }
-
-
-// console.log(questions[i]);
-// console.log(questions[i].q);
-// console.log(questions[i].options[0].a);
-// console.log(questions[i].options[1].b);
-// console.log(questions[i].options[2].c);
-// console.log(questions[i].options[3].d);
-//issue anticipated - one question at a time . will neee separate logic in for loop 
-
-
-
-//before move to next question
-// if variable selected == variable of the correct answer, then they got it right
-// console.log(questionEl.textContent = "Correct!");
-// //else remove time 
-
-// var respa = document.getElementsByName("a")
-// var respb = document.getElementsByName("b")
-// var respc = document.getElementsByName("c")
-// var respd = document.getElementsByName("d")
-
-// // if resp = true && cor = true 
-// display text
-
-
-// if(document.getElementById('gender_Male').checked) {
-//     //Male radio button is checked
-//   }else if(document.getElementById('gender_Female').checked) {
-//     //Female radio button is checked
-//   }
-
-
-
-
-
-//if (document.getElementById(a))
-
-    //         }
-    //         else if ((respb) && (questions[currentQ].answers[1].b)) {
-    //             console.log(questionEl.textContent = "Correct!");
-    //             nextBtn.addEventListener("click",function(){
-    //                 askFirstQ();
-    //         })
-    //         }
-    //         else if ((respc) && (questions[currentQ].answers[2].c)) {
-    //             console.log(questionEl.textContent = "Correct!");
-    //             nextBtn.addEventListener("click",function(){
-    //                 askFirstQ();
-    //         })
-    //         }
-    //         else if ((respd) && (questions[currentQ].answers[3].d)) {
-    //             console.log(questionEl.textContent = "Correct!");
-    //             nextBtn.addEventListener("click",function(){
-    //                 askFirstQ();
-    //         })
-    //         }
- 
-    // })
