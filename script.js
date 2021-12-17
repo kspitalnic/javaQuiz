@@ -1,10 +1,10 @@
-//code before attempt to add correct answer changes
-//Issues: Iteration through questions visible to user. 
+//need actual questions
+//Issues: 
+    // Iteration through questions visible to user. 
     // pop up comes three times when finished complete. 
     // add reset radio button 
     // high score comes with name and time. only add once. 
 
-//Intro
 
 var startBtn = document.querySelector("#start");
 var questionEl = document.querySelector("#prompt");
@@ -183,6 +183,9 @@ function askFirstQ() {
                 ((respd) && (questions[currentQ].answers[3].d))) {
                 console.log(questionEl.textContent = "Correct!");
                 nextBtn.addEventListener("click",function(){
+                    if (document.querySelector('input[name="select"]:checked').checked = true){
+                        document.querySelector('input[name="select"]:checked').checked = false
+                    };
                     askFirstQ();
             })}
             else if((!respa)&&(!respb)&&(!respc)&&(!respd)){
@@ -196,6 +199,7 @@ function askFirstQ() {
                     {time=time-10}
                 else{time=0};
                 nextBtn.addEventListener("click",function(){
+                    document.querySelector('input[name="select"]:checked').checked = false;
                     askFirstQ();
             })
             }
