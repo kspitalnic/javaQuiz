@@ -10,7 +10,7 @@ var currentQ = 0;
 var currentOp = 0;
 var answerLetter = 0;
 
-var time = 100;
+var time = 60;
 
 
 document.getElementById("start").addEventListener("click", function () {
