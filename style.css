@@ -109,7 +109,7 @@ a {
     cursor:pointer;
 }
 
-#next {
+#next #review {
     float:right;
 }
 
@@ -160,6 +160,9 @@ a {
     border-radius: 10px;
 }
 
+.hide {
+    display:none;
+}
 .submitBtn, input{
     font-size: 16px;
     padding: 10px;

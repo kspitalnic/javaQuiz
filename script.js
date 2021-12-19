@@ -9,11 +9,12 @@
 var startBtn = document.querySelector("#start");
 var questionEl = document.querySelector("#prompt");
 var nextBtn = document.querySelector("#next");
+var rvwBtn = document.querySelector("#review");
 var opa = document.querySelector("#a");
 var opb = document.querySelector("#b");
 var opc = document.querySelector("#c");
 var opd = document.querySelector("#d");
-var currentQ = -1;
+var currentQ = 0;
 var currentOp = 0;
 var answerLetter = 0;
 
@@ -98,7 +99,7 @@ var questions = [
     {
         que: "fifth question",
         options: [
-            { a:"5a"},
+            { a: "5a"},
             { b: "5b" },
             { c: "5c" },
             { d: "5d" }
@@ -130,7 +131,7 @@ start();
 //iterates through all of them but only shows some to user. error at end. 
 
 function askFirstQ() {
-    currentQ++;
+    // currentQ++;
     currentOp=0;
 
     document.getElementById("aa").disabled = false;
@@ -150,9 +151,11 @@ function askFirstQ() {
     console.log(opd.textContent = questions[currentQ].options[currentOp].d);
     currentOp=0;
 
-    nextBtn.textContent="Review"; 
+    // rvwBtn.textContent="Review"; 
+    rvwBtn.classList.remove("hide");
+    nextBtn.setAttribute("class", "hide");
 
-    reviewQ();
+    rvwBtn.addEventListener("click", reviewQ);
 
     }
     else{
@@ -161,23 +164,36 @@ function askFirstQ() {
             window.alert("Please try again!");
         }
         else{
-        console.log("done" + time);
+        console.log("done " + time);
         time=time;
-        console.log(time);
         score=JSON.stringify(time);
         console.log(score);
-        localStorage.setItem("score", score);
         clearInterval();
-        window.alert("Congragulations! You scored " + time +  " points on the quiz! Add your initials to the high score board!" );    
+        var input =window.prompt("Congragulations! You scored " + time +  " points on the quiz! Add your initials to the high score board!" );    
+
         window.location.href = "./highscores.html"   
+
+        //save to local storage 
+
+        var hs = JSON.parse(localStorage.getItem("hs")) || [];
+        var scoreObject= {
+            "score":score,
+            "input":input,
         }
-    }
+        hs.push(scoreObject);
+        hs.sort((a,b)=> b.score-a.score);
+
+        localStorage.setItem("hs", JSON.stringify(hs));
+    }}
 }
 
     function reviewQ () {
 
-    nextBtn.addEventListener("click", function () {
-        nextBtn.textContent="Next";
+        rvwBtn.setAttribute("class", "hide");
+        nextBtn.classList.remove("hide");
+
+    // nextBtn.addEventListener("click", function () {
+        // nextBtn.textContent="Next";
 
         document.getElementById("aa").disabled = true;
         document.getElementById("bb").disabled = true;
@@ -195,32 +211,41 @@ function askFirstQ() {
                 ((respd) && (questions[currentQ].answers[3].d))) {
                 console.log(questionEl.textContent = "Correct!");
                 nextBtn.addEventListener("click",function(){
-                    if (document.querySelector('input[name="select"]:checked').checked = true){
+                    // if (document.querySelector('input[name="select"]:checked').checked = true){
                         document.querySelector('input[name="select"]:checked').checked = false
-                    };
-                askFirstQ();
+                    // };
+                    currentQ++;
 
-            })}
-            else if((!respa)&&(!respb)&&(!respc)&&(!respd)){
-                window.alert("Please select an option");
-                nextBtn.textContent="Review";
-                currentQ--;
                 askFirstQ();
-            }
-            else {
+            })}
+
+            else if (((respa) && (!questions[currentQ].answers[0].a))||
+                     ((respb) && (!questions[currentQ].answers[1].b))||
+                     ((respc) && (!questions[currentQ].answers[2].c))||
+                     ((respd) && (!questions[currentQ].answers[3].d))){
                 console.log(questionEl.textContent = "Incorrect");
                 if (time>-1)
                     {time=time-10}
                 else{time=0};
                 nextBtn.addEventListener("click",function(){
                     if (document.querySelector('input[name="select"]:checked').checked = true){
-                    document.querySelector('input[name="select"]:checked').checked = false};
+                    document.querySelector('input[name="select"]:checked').checked = false;
+                };
+                    currentQ++;
                     askFirstQ();
-            })
+            
+            })}
+
+            else{
+                window.alert("Please select an option");
+                // nextBtn.textContent="Review";
+                // currentQ--;
+                askFirstQ();
             }
 
-        })
-    }
+    // })
+        }
+
 
 
 
